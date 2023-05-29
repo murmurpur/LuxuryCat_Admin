@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "564252135908",
+    "project_id": "luxurycat-eb210",
+    "storage_bucket": "luxurycat-eb210.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564252135908:android:4f4e3cabeb596bb34bb7f1",
+        "android_client_info": {
+          "package_name": "com.example.luxurycat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564252135908-glqu2d4jpss9r56ud65pch5demurvbpu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsQqqB8nyNeRBoql7udazFRsz78cKPTIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564252135908-glqu2d4jpss9r56ud65pch5demurvbpu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564252135908:android:05a88b32798e7b124bb7f1",
+        "android_client_info": {
+          "package_name": "com.example.luxurycatadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564252135908-glqu2d4jpss9r56ud65pch5demurvbpu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsQqqB8nyNeRBoql7udazFRsz78cKPTIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564252135908-glqu2d4jpss9r56ud65pch5demurvbpu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

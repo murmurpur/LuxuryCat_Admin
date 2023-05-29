@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.luxurycatadmin.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_categoryCatFragment"
+            app:destination="@id/categoryCatFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_catFragment"
+            app:destination="@id/catFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_sliderFragment"
+            app:destination="@id/sliderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCatFragment"
+        android:name="com.example.luxurycatadmin.fragments.AddCatFragment"
+        android:label="fragment_add_cat"
+        tools:layout="@layout/fragment_add_cat" />
+    <fragment
+        android:id="@+id/categoryCatFragment"
+        android:name="com.example.luxurycatadmin.fragments.CategoryCatFragment"
+        android:label="fragment_category_cat"
+        tools:layout="@layout/fragment_category_cat" />
+    <fragment
+        android:id="@+id/catFragment"
+        android:name="com.example.luxurycatadmin.fragments.CatFragment"
+        android:label="fragment_cat"
+        tools:layout="@layout/fragment_cat" >
+        <action
+            android:id="@+id/action_catFragment_to_addCatFragment"
+            app:destination="@id/addCatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sliderFragment"
+        android:name="com.example.luxurycatadmin.fragments.SliderFragment"
+        android:label="fragment_slider"
+        tools:layout="@layout/fragment_slider" />
+</navigation>
