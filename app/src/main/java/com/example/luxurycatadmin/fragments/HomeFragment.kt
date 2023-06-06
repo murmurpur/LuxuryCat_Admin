@@ -23,11 +23,11 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
         binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_categoryCatFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_categoryProductFragment)
         }
 
         binding.button2.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_catFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_productFragment)
         }
 
         binding.button3.setOnClickListener {

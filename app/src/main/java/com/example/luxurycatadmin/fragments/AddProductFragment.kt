@@ -14,9 +14,9 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.luxurycatadmin.R
-import com.example.luxurycatadmin.adapter.AddCatImageAdapter
-import com.example.luxurycatadmin.databinding.FragmentAddCatBinding
-import com.example.luxurycatadmin.model.AddCatModel
+import com.example.luxurycatadmin.adapter.AddProductImageAdapter
+import com.example.luxurycatadmin.databinding.FragmentAddProductBinding
+import com.example.luxurycatadmin.model.AddProductModel
 import com.example.luxurycatadmin.model.CategoryModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -25,12 +25,12 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class AddCatFragment : Fragment() {
+class AddProductFragment : Fragment() {
 
-    private lateinit var binding: FragmentAddCatBinding
+    private lateinit var binding: FragmentAddProductBinding
     private lateinit var list : ArrayList<Uri>
     private lateinit var listImages : ArrayList<String>
-    private lateinit var adapter : AddCatImageAdapter
+    private lateinit var adapter : AddProductImageAdapter
     private var coverImage: Uri ? = null
     private lateinit var dialog : Dialog
     private var coverImageUrl : String? = ""
@@ -46,7 +46,7 @@ class AddCatFragment : Fragment() {
         }
     }
 
-    private var launchCatActivity = registerForActivityResult(
+    private var launchProductActivity = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ){
         if (it.resultCode == Activity.RESULT_OK){
@@ -60,7 +60,7 @@ class AddCatFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentAddCatBinding.inflate(layoutInflater)
+        binding = FragmentAddProductBinding.inflate(layoutInflater)
         list = ArrayList()
         listImages = ArrayList()
 
@@ -74,18 +74,18 @@ class AddCatFragment : Fragment() {
             launchGalleryActivity.launch(intent)
         }
 
-        binding.catImgBtn.setOnClickListener{
+        binding.productImgBtn.setOnClickListener{
             val intent = Intent("android.intent.action.GET_CONTENT")
             intent.type = "image/*"
-            launchCatActivity.launch(intent)
+            launchProductActivity.launch(intent)
         }
 
-        setCatCategory()
+        setProductCategory()
 
-        adapter = AddCatImageAdapter(list)
+        adapter = AddProductImageAdapter(list)
         binding.productImgRecyclerView.adapter = adapter
 
-        binding.submitCatBtn.setOnClickListener{
+        binding.submitProductBtn.setOnClickListener{
             validateData()
         }
 
@@ -93,12 +93,12 @@ class AddCatFragment : Fragment() {
     }
 
     private fun validateData() {
-        if (binding.catNameEdt.text.toString().isEmpty()) {
-            binding.catNameEdt.requestFocus()
-            binding.catNameEdt.error = "Empty"
-        } else if (binding.catSpEdt.text.toString().isEmpty()) {
-            binding.catSpEdt.requestFocus()
-            binding.catSpEdt.error = "Empty"
+        if (binding.productNameEdt.text.toString().isEmpty()) {
+            binding.productNameEdt.requestFocus()
+            binding.productNameEdt.error = "Empty"
+        } else if (binding.productSpEdt.text.toString().isEmpty()) {
+            binding.productSpEdt.requestFocus()
+            binding.productSpEdt.error = "Empty"
         } else if (coverImage == null) {
             Toast.makeText(requireContext(), "Please select cover image", Toast.LENGTH_SHORT).show()
         } else if (list.size < 1) {
@@ -113,13 +113,13 @@ class AddCatFragment : Fragment() {
 
         val fileName = UUID.randomUUID().toString()+".jpg"
 
-        val refStorage = FirebaseStorage.getInstance().reference.child("cats/$fileName")
+        val refStorage = FirebaseStorage.getInstance().reference.child("products/$fileName")
         refStorage.putFile(coverImage!!)
             .addOnSuccessListener {
                 it.storage.downloadUrl.addOnSuccessListener {image ->
                     coverImageUrl = image.toString()
 
-                    uploadCatImage()
+                    uploadProductImage()
                 }
             }
             .addOnFailureListener{
@@ -129,12 +129,12 @@ class AddCatFragment : Fragment() {
     }
 
     private var i = 0
-    private fun uploadCatImage() {
+    private fun uploadProductImage() {
         dialog.show()
 
         val fileName = UUID.randomUUID().toString()+".jpg"
 
-        val refStorage = FirebaseStorage.getInstance().reference.child("cats/$fileName")
+        val refStorage = FirebaseStorage.getInstance().reference.child("products/$fileName")
         refStorage.putFile(list[i]!!)
             .addOnSuccessListener {
                 it.storage.downloadUrl.addOnSuccessListener {image ->
@@ -143,7 +143,7 @@ class AddCatFragment : Fragment() {
                         storeData()
                     }else{
                         i += 1
-                        uploadCatImage()
+                        uploadProductImage()
                     }
                 }
             }
@@ -154,23 +154,23 @@ class AddCatFragment : Fragment() {
     }
 
     private fun storeData() {
-        val db = Firebase.firestore.collection("cats")
+        val db = Firebase.firestore.collection("products")
         val key = db.document().id
 
-        val data = AddCatModel(
-            binding.catNameEdt.text.toString(),
-            binding.catDescriptionEdt.text.toString(),
+        val data = AddProductModel(
+            binding.productNameEdt.text.toString(),
+            binding.productDescriptionEdt.text.toString(),
             coverImageUrl.toString(),
-            categoryList[binding.catCategoryDropdown.selectedItemPosition],
+            categoryList[binding.productCategoryDropdown.selectedItemPosition],
             key,
-            binding.catSrpEdt.text.toString(),
-            binding.catSpEdt.text.toString(),
+            binding.productSrpEdt.text.toString(),
+            binding.productSpEdt.text.toString(),
             listImages
         )
         db.document(key).set(data).addOnSuccessListener {
             dialog.dismiss()
             Toast.makeText(requireContext(), "Cat Added", Toast.LENGTH_SHORT).show()
-            binding.catNameEdt.text = null
+            binding.productNameEdt.text = null
         }
             .addOnFailureListener{
                 dialog.dismiss()
@@ -179,7 +179,7 @@ class AddCatFragment : Fragment() {
     }
 
 
-    private fun setCatCategory() {
+    private fun setProductCategory() {
         categoryList = ArrayList()
         Firebase.firestore.collection("categories").get().addOnSuccessListener {
             categoryList.clear()
@@ -190,8 +190,8 @@ class AddCatFragment : Fragment() {
             categoryList.add(0, "Select Category")
 
             val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item_layout, categoryList)
-            binding.catCategoryDropdown.adapter = arrayAdapter
+            binding.productCategoryDropdown.adapter = arrayAdapter
         }
-        
+
     }
 }

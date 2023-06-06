@@ -7,17 +7,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.luxurycatadmin.R
-import com.example.luxurycatadmin.databinding.CatCategoryLayoutBinding
+import com.example.luxurycatadmin.databinding.ProductCategoryLayoutBinding
 import com.example.luxurycatadmin.model.CategoryModel
 
 
 class CategoryAdapter(var context : Context, val list : ArrayList<CategoryModel>) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
     inner class CategoryViewHolder(view : View) : RecyclerView.ViewHolder(view){
-        var binding = CatCategoryLayoutBinding.bind(view)
+        var binding = ProductCategoryLayoutBinding.bind(view)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        return CategoryViewHolder(LayoutInflater.from(context).inflate(R.layout.cat_category_layout, parent, false))
+        return CategoryViewHolder(LayoutInflater.from(context).inflate(R.layout.product_category_layout, parent, false))
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {

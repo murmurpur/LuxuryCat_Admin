@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.luxurycatadmin.R
 import com.example.luxurycatadmin.adapter.CategoryAdapter
-import com.example.luxurycatadmin.databinding.FragmentCategoryCatBinding
+import com.example.luxurycatadmin.databinding.FragmentCategoryProductBinding
 import com.example.luxurycatadmin.model.CategoryModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -23,9 +23,9 @@ import kotlin.collections.ArrayList
 
 
 
-class CategoryCatFragment : Fragment() {
+class CategoryProductFragment : Fragment() {
 
-    private lateinit var binding : FragmentCategoryCatBinding
+    private lateinit var binding : FragmentCategoryProductBinding
     private var imageUrl : Uri? = null
     private lateinit var dialog : Dialog
 
@@ -43,7 +43,7 @@ class CategoryCatFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentCategoryCatBinding.inflate(layoutInflater)
+        binding = FragmentCategoryProductBinding.inflate(layoutInflater)
 
         dialog = Dialog(requireContext())
         dialog.setContentView(R.layout.progress_layout)

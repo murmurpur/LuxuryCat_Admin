@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="12dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.CategoryCatFragment">
+    tools:context=".fragments.CategoryProductFragment">
 
     <ImageView
         android:id="@+id/imageView"
@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_marginTop="12dp"
         android:layout_height="0dp"
-        tools:listitem="@layout/cat_category_layout"
+        tools:listitem="@layout/product_category_layout"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

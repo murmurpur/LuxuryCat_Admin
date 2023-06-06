@@ -6,19 +6,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.luxurycatadmin.databinding.ImageItemBinding
 
-class AddCatImageAdapter(val list : ArrayList<Uri>)
-    : RecyclerView.Adapter<AddCatImageAdapter.AddCatImageViewHolder>() {
+class AddProductImageAdapter(val list : ArrayList<Uri>) :
+    RecyclerView.Adapter<AddProductImageAdapter.AddProductImageViewHolder>() {
 
-    inner class AddCatImageViewHolder(val binding : ImageItemBinding)
+    inner class AddProductImageViewHolder(val binding : ImageItemBinding)
         : RecyclerView.ViewHolder(binding.root)
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddCatImageViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddProductImageViewHolder {
         val binding = ImageItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return AddCatImageViewHolder(binding)
+        return AddProductImageViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: AddCatImageViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AddProductImageViewHolder, position: Int) {
         holder.binding.itemImg.setImageURI(list[position])
     }
 

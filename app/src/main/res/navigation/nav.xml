@@ -11,33 +11,33 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_categoryCatFragment"
-            app:destination="@id/categoryCatFragment" />
+            android:id="@+id/action_homeFragment_to_categoryProductFragment"
+            app:destination="@id/categoryProductFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_catFragment"
-            app:destination="@id/catFragment" />
+            android:id="@+id/action_homeFragment_to_productFragment"
+            app:destination="@id/productFragment" />
         <action
             android:id="@+id/action_homeFragment_to_sliderFragment"
             app:destination="@id/sliderFragment" />
     </fragment>
     <fragment
-        android:id="@+id/addCatFragment"
-        android:name="com.example.luxurycatadmin.fragments.AddCatFragment"
-        android:label="fragment_add_cat"
-        tools:layout="@layout/fragment_add_cat" />
+        android:id="@+id/addProductFragment"
+        android:name="com.example.luxurycatadmin.fragments.AddProductFragment"
+        android:label="fragment_add_product"
+        tools:layout="@layout/fragment_add_product" />
     <fragment
-        android:id="@+id/categoryCatFragment"
-        android:name="com.example.luxurycatadmin.fragments.CategoryCatFragment"
-        android:label="fragment_category_cat"
-        tools:layout="@layout/fragment_category_cat" />
+        android:id="@+id/categoryProductFragment"
+        android:name="com.example.luxurycatadmin.fragments.CategoryProductFragment"
+        android:label="fragment_category_product"
+        tools:layout="@layout/fragment_category_product" />
     <fragment
-        android:id="@+id/catFragment"
-        android:name="com.example.luxurycatadmin.fragments.CatFragment"
-        android:label="fragment_cat"
-        tools:layout="@layout/fragment_cat" >
+        android:id="@+id/productFragment"
+        android:name="com.example.luxurycatadmin.fragments.ProductFragment"
+        android:label="fragment_product"
+        tools:layout="@layout/fragment_product" >
         <action
-            android:id="@+id/action_catFragment_to_addCatFragment"
-            app:destination="@id/addCatFragment" />
+            android:id="@+id/action_productFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
     </fragment>
     <fragment
         android:id="@+id/sliderFragment"

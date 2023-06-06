@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.AddCatFragment">
+    tools:context=".fragments.AddProductFragment">
 
     <ProgressBar
         android:id="@+id/progressBar3"
@@ -38,7 +38,7 @@
                 android:padding="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cat_name_edt"
+                    android:id="@+id/product_name_edt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -52,7 +52,7 @@
                 android:padding="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cat_description_edt"
+                    android:id="@+id/product_description_edt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -67,7 +67,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cat_srp_edt"
+                    android:id="@+id/product_srp_edt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
@@ -83,7 +83,7 @@
                 android:padding="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cat_sp_edt"
+                    android:id="@+id/product_sp_edt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"/>
@@ -91,7 +91,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Spinner
-                android:id="@+id/cat_category_dropdown"
+                android:id="@+id/product_category_dropdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -116,7 +116,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/cat_img_btn"
+                android:id="@+id/product_img_btn"
                 android:text="Select Cat Image"
                 android:textAllCaps="false"
                 android:layout_margin="10dp"/>
@@ -133,7 +133,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/submit_cat_btn"
+                android:id="@+id/submit_product_btn"
                 android:text="Add Cat"
                 android:textAllCaps="false"
                 android:layout_margin="10dp"/>

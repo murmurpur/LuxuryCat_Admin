@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.luxurycatadmin.R
-import com.example.luxurycatadmin.databinding.FragmentCatBinding
+import com.example.luxurycatadmin.databinding.FragmentProductBinding
 
-class CatFragment : Fragment() {
+class ProductFragment : Fragment() {
 
-    private lateinit var binding : FragmentCatBinding
+    private lateinit var binding : FragmentProductBinding
 
 
     override fun onCreateView(
@@ -19,10 +19,10 @@ class CatFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentCatBinding.inflate(layoutInflater)
+        binding = FragmentProductBinding.inflate(layoutInflater)
 
         binding.floatingActionButton.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_catFragment_to_addCatFragment)
+            Navigation.findNavController(it).navigate(R.id.action_productFragment_to_addProductFragment)
         }
         return binding.root
     }
